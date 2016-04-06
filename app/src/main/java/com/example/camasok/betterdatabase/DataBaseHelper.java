@@ -19,7 +19,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.example.camasok.betterdatabase/assets/";
 
-    private static String DB_NAME = "CoffeeBreakUpdate";
+    private static String DB_NAME = "CoffeeBreakUpdateAndroid";
 
     private SQLiteDatabase myDataBase;
 

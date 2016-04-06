@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">COFFee Interface</string>
+
+    <string-array name="Col_o_f">
+        <item>ALL</item>
+        <item>Wentworth</item>
+        <item>Simmons</item>
+        <item>MassART</item>
+    </string-array>
+
+    <string-array name="Major">
+        <item>ALL</item>
+        <item>Architecture</item>
+        <item>Art</item>
+        <item>Biology</item>
+        <item>Business</item>
+        <item>Civil Engineering</item>
+        <item>Computer Basket Weaving</item>
+        <item>Computer Engineering</item>
+        <item>Computer Science</item>
+        <item>Electrical Engineering</item>
+        <item>Music</item>
+        <item>Photography</item>
+    </string-array>
+
+    <string-array name="Minor">
+        <item>NONE</item>
+        <item>Basket Weaving</item>
+        <item>Business</item>
+        <item>Chemistry</item>
+        <item>Computer Engineering</item>
+    </string-array>
+
+    <string-array name="ExtraQueries">
+        <item>NONE</item>
+        <item>Query 1</item>
+        <item>Query 2</item>
+        <item>Query 3</item>
+        <item>Query 4</item>
+        <item>Query 5</item>
+    </string-array>
+
+
+</resources>

@@ -53,11 +53,11 @@
 
     <string-array name="Course">
         <item>NONE</item>
-        <item>Query 1</item>
-        <item>Query 2</item>
-        <item>Query 3</item>
-        <item>Query 4</item>
-        <item>Query 5</item>
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
     </string-array>
 
     <string-array name="ZIP">

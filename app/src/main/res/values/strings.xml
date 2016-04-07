@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COFFee Interface</string>
+    <string name="app_name">COFFee</string>
 
     <string-array name="Col_o_f">
         <item>ALL</item>
@@ -40,126 +40,33 @@
         <item>Query 5</item>
     </string-array>
 
-    <string name="dml">CREATE DATABASE CoffeeStudents;
+    <string-array name="Group">
+        <item>NONE</item>
+        <item>Query 1</item>
+        <item>Query 2</item>
+        <item>Query 3</item>
+        <item>Query 4</item>
+        <item>Query 5</item>
+    </string-array>
 
-CREATE TABLE Student
-(
-  Major VARCHAR(40),
-  Minor VARCHAR(40),
-  Stu_ID VARCHAR(40)  ,
-  FName VARCHAR(40)  ,
-  LName VARCHAR(40)  ,
-  Phone_Number VARCHAR(40)  ,
-  PRIMARY KEY (Stu_ID)
-);
+    <string-array name="Course">
+        <item>NONE</item>
+        <item>Query 1</item>
+        <item>Query 2</item>
+        <item>Query 3</item>
+        <item>Query 4</item>
+        <item>Query 5</item>
+    </string-array>
 
-CREATE TABLE Availability
-(
-  Morn INT  ,
-  Aft INT  ,
-  Eve INT  ,
-  Day INT  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
+    <string-array name="ZIP">
+        <item>NONE</item>
+        <item>Query 1</item>
+        <item>Query 2</item>
+        <item>Query 3</item>
+        <item>Query 4</item>
+        <item>Query 5</item>
+    </string-array>
 
-CREATE TABLE Transportation
-(
-  Close_Bus_Route VARCHAR(40)  ,
-  Close_Train_Line VARCHAR(40)  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Courses
-(
-  C_Name VARCHAR(40)  ,
-  C_Loc VARCHAR(40)  ,
-  C_ID INT  ,
-  Stu_ID VARCHAR(40)  ,
-  PRIMARY KEY (C_ID),
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Interests
-(
-  I_Loc VARCHAR(40)  ,
-  I_Name VARCHAR(40)  ,
-  IsSport INT  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Communicates_Using
-(
-  SM_Acc VARCHAR(40)  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Availability_Weekday
-(
-  Monday INT  ,
-  Tuesday INT  ,
-  Wednesday INT  ,
-  Thursday INT  ,
-  Friday INT  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Transportation_Preference
-(
-  Preference VARCHAR(40)  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Stu_Courses
-(
-  Stu_ID VARCHAR(40)  ,
-  C_ID INT  ,
-  FOREIGN KEY (C_ID) REFERENCES Courses(C_ID)
-);
-
-CREATE TABLE Food
-(
-  Allergies VARCHAR(40)  ,
-  Preferences VARCHAR(40)  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Address
-(
-  Address VARCHAR(40)  ,
-  City VARCHAR(40)  ,
-  State VARCHAR(40)  ,
-  ZIP INT  ,
-  Carpool_Avail INT  ,
-  Stu_ID VARCHAR(40)  ,
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE Groups
-(
-  G_ID INT  ,
-  Name VARCHAR(40)  ,
-  Purpose VARCHAR(40)  ,
-  Stu_ID VARCHAR(40)  ,
-  PRIMARY KEY (G_ID),
-  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
-);
-
-CREATE TABLE College
-(
-  College_ID INT  ,
-  Col_Name VARCHAR(40)  ,
-  C_ID INT  ,
-  PRIMARY KEY (College_ID),
-  FOREIGN KEY (C_ID) REFERENCES Courses(C_ID)
-);
-</string>
 
 
 </resources>

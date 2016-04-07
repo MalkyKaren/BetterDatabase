@@ -62,6 +62,48 @@
             android:id="@+id/spinner3"
             android:entries="@array/ExtraQueries" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Course"
+            android:id="@+id/textView5" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:spinnerMode="dropdown"
+            android:entries="@array/Course" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Groups"
+            android:id="@+id/textView6" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner4"
+            android:spinnerMode="dropdown"
+            android:entries="@array/Group" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="ZIP"
+            android:id="@+id/textView7" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner5"
+            android:spinnerMode="dropdown"
+            android:entries="@array/ZIP" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,13 +112,6 @@
             android:id="@+id/editText"
             android:layout_weight="0.57"
             android:editable="false" />
-
-        <ImageView
-            android:layout_width="79dp"
-            android:layout_height="79dp"
-            android:id="@+id/imageView"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/donut" />
     </LinearLayout>
 
     <Button
@@ -90,4 +125,15 @@
         android:layout_marginLeft="292dp"
         android:layout_marginStart="292dp"
         android:onClick="query" />
+
+    <ImageView
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/donut"
+        android:layout_alignTop="@+id/buttonQuery"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         spinner6 = (Spinner)findViewById( R.id.spinner6 );
         editText = (EditText)findViewById( R.id.editText );
         buttonQuery = (Button)findViewById( R.id.buttonQuery );
-        editText.setText(new String("Hello"));
+        editText.setText("Hello");
 
     }
 
@@ -66,10 +66,11 @@ public class MainActivity extends AppCompatActivity {
         CoffeeDBHelper cDBHelper = new CoffeeDBHelper((getApplicationContext()));
         SQLiteDatabase db = cDBHelper.getReadableDatabase();
         String[] colums = {"Student.FName AS Name" ,"Student.LName", "Student.Major", "Student.Stu_ID"};
-        Cursor c = db.query("Student",colums,null, null, null, null, null);
+        Cursor c = db.query("Student " /*+  getResources().getString(R.string.lame_o_join*/ ,colums,null, null, null, null, null);
         c.moveToFirst();
-        String test = (String) spinner1.getSelectedItem();
-        editText.setText( c.getColumnName(0)+ ": \n" +c.getString(0) + "\n" + c.getString(1) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test);
+        String test = "";
+        test += c.getColumnName(0)+ ": \n" +c.getString(0) + "\n" + c.getString(1) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
+        editText.setText(test);
         c.close();
 
 

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         spinner1 = (Spinner)findViewById( R.id.spinner1 );
         spinner2 = (Spinner)findViewById( R.id.spinner2 );
-        spinner3 = (Spinner)findViewById( R.id.spinner3 );
         spinner4 = (Spinner)findViewById( R.id.spinner4 );
         spinner5 = (Spinner)findViewById( R.id.spinner5 );
         spinner6 = (Spinner)findViewById( R.id.spinner6 );
@@ -65,13 +65,21 @@ public class MainActivity extends AppCompatActivity {
     public void query(View view)  {
         CoffeeDBHelper cDBHelper = new CoffeeDBHelper((getApplicationContext()));
         SQLiteDatabase db = cDBHelper.getReadableDatabase();
+
+
         String[] colums = {"Student.FName AS Name" ,"Student.LName", "Student.Major", "Student.Stu_ID"};
-        Cursor c = db.query("Student " /*+  getResources().getString(R.string.lame_o_join*/ ,colums,null, null, null, null, null);
+        String test = "Hello!";
+        Cursor c = db.query("Student " +  getResources().getString(R.string.lame_o_join) ,colums,null, null, null, null, null);
         c.moveToFirst();
-        String test = "";
-        test += c.getColumnName(0)+ ": \n" +c.getString(0) + "\n" + c.getString(1) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
+
+        c.moveToNext();
+        test += c.getColumnName(1)+ ": \n" +c.getString(1) + "\n" + c.getString(2) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
+
+
+
+
+
         editText.setText(test);
-        c.close();
 
 
    }

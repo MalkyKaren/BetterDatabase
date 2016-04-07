@@ -42,11 +42,13 @@
 
     <string-array name="Group">
         <item>NONE</item>
-        <item>Query 1</item>
-        <item>Query 2</item>
-        <item>Query 3</item>
-        <item>Query 4</item>
-        <item>Query 5</item>
+        <item>Music Club</item>
+        <item>Mobile App Development</item>
+        <item>Hair Dye Club</item>
+        <item>Guitar Club</item>
+        <item>Glee Club</item>
+        <item>Chemistry Club</item>
+        <item>Architecture Club</item>
     </string-array>
 
     <string-array name="Course">
@@ -59,12 +61,16 @@
     </string-array>
 
     <string-array name="ZIP">
-        <item>NONE</item>
-        <item>Query 1</item>
-        <item>Query 2</item>
-        <item>Query 3</item>
-        <item>Query 4</item>
-        <item>Query 5</item>
+        <item>ANY</item>
+        <item>2112</item>
+        <item>2114</item>
+        <item>2115</item>
+        <item>2128</item>
+        <item>2145</item>
+        <item>2155</item>
+        <item>3079</item>
+        <item>7059</item>
+        <item>20423</item>
     </string-array>
 
 

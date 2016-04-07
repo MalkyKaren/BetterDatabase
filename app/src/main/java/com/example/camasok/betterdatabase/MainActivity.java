@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinner1;
     private Spinner spinner2;
     private Spinner spinner3;
+    private Spinner spinner4;
+    private Spinner spinner5;
+    private Spinner spinner6;
+
     private Button buttonQuery;
-    public String querySelect = "SELECT Student.FName, Student.LName, Student.Phone_Number";
-    public String queryFrom = "FROM Student ";
-    public String queryFAddon = "";
-    public String queryWhere = "WHERE ";
-    public String queryWAddon = "";
+
     private EditText editText;
 
 
@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         spinner1 = (Spinner)findViewById( R.id.spinner1 );
         spinner2 = (Spinner)findViewById( R.id.spinner2 );
         spinner3 = (Spinner)findViewById( R.id.spinner3 );
+        spinner4 = (Spinner)findViewById( R.id.spinner4 );
+        spinner5 = (Spinner)findViewById( R.id.spinner5 );
+        spinner6 = (Spinner)findViewById( R.id.spinner6 );
         editText = (EditText)findViewById( R.id.editText );
         buttonQuery = (Button)findViewById( R.id.buttonQuery );
         editText.setText(new String("Hello"));
@@ -62,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
     public void query(View view)  {
         CoffeeDBHelper cDBHelper = new CoffeeDBHelper((getApplicationContext()));
         SQLiteDatabase db = cDBHelper.getReadableDatabase();
-        Cursor c = db.query("Student", {"Student.FName" ,"Student.LName", "Student.Major"}, null, null, null, null, null);
+        String[] colums = {"Student.FName AS Name" ,"Student.LName", "Student.Major", "Student.Stu_ID"};
+        Cursor c = db.query("Student",colums,null, null, null, null, null);
         c.moveToFirst();
-        editText.setText(c.getString(0) + "\n" + c.getString(1) + "\n" + c.getString(2));
+        String test = (String) spinner1.getSelectedItem();
+        editText.setText( c.getColumnName(0)+ ": \n" +c.getString(0) + "\n" + c.getString(1) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test);
+        c.close();
 
 
    }
-
-
-
 
 }

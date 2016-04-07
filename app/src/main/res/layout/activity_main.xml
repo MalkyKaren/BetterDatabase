@@ -60,7 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner3"
-            android:entries="@array/ExtraQueries" />
+            android:entries="@array/ExtraQueries"
+            android:spinnerMode="dropdown" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,7 +73,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner"
+            android:id="@+id/spinner4"
             android:spinnerMode="dropdown"
             android:entries="@array/Course" />
 
@@ -86,7 +87,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner4"
+            android:id="@+id/spinner5"
             android:spinnerMode="dropdown"
             android:entries="@array/Group" />
 
@@ -100,7 +101,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner5"
+            android:id="@+id/spinner6"
             android:spinnerMode="dropdown"
             android:entries="@array/ZIP" />
 

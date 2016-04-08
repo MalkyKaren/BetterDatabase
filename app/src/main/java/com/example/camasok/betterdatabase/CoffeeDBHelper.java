@@ -13,12 +13,14 @@ import static android.provider.Settings.Global.getString;
  */
 public class CoffeeDBHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "CoffeeBreakUpdateAndroid.db";
 
     public CoffeeDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
+    @Override
     public void onCreate(SQLiteDatabase db) {
 
         CoffeeDBHelper cDBHelper = new CoffeeDBHelper(MyApp.getContext());
@@ -569,17 +571,17 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
         }
 
     }
+    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // This database is only a cache for online data, so its upgrade policy is
         // to simply to discard the data and start over
 
         String[] tableList = new String[]{"Student", "Availability", "Transportation", "Courses", "Interests", "Communicates_Using", "Availability_Weekday", "Transportation_Preference",
                 "Stu_Courses", "Food", "Address", "Groups", "College"};
-      for(int i = 0; i < 13; i++)
-      {
-          db.execSQL("DROP TABLE IF EXISTS " + tableList[i]);
-      }
-       onCreate(db);
+        for (int i = 0; i < 13; i++) {
+            db.execSQL("DROP TABLE IF EXISTS " + tableList[i]);
+        }
+        onCreate(db);
     }
 
 }

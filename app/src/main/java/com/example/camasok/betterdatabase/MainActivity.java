@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         CourseSpinner = (Spinner)findViewById( R.id.CourseSpinner );
         GroupSpinner = (Spinner)findViewById( R.id.GroupSpinner );
         ZIPSpinner = (Spinner)findViewById( R.id.ZIPSpinner );
-        editText = (EditText)findViewById( R.id.editText );
-        buttonQuery = (Button)findViewById( R.id.buttonQuery );
-        editText.setText("Hello");
+        //editText = (EditText)findViewById( R.id.editText );
+        // buttonQuery = (Button)findViewById( R.id.buttonQuery );
+        //editText.setText("Hello");
     }
 
     public void query(View view)  {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         c.moveToNext();
         test += c.getColumnName(1)+ ": \n" +c.getString(1) + "\n" + c.getString(2) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
 
-        editText.setText(test);
+       // editText.setText(test);
         c.close();
    }
 

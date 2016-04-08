@@ -43,6 +43,7 @@
 
     <string-array name="Group">
         <item>NONE</item>
+        <item>ANY</item>
         <item>Music Club</item>
         <item>Mobile App Development</item>
         <item>Hair Dye Club</item>
@@ -53,7 +54,7 @@
     </string-array>
 
     <string-array name="Course">
-        <item>NONE</item>
+        <item>ANY</item>
         <item>Item 1</item>
         <item>Item 2</item>
         <item>Item 3</item>

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = cDBHelper.getReadableDatabase();
 
 
-        String[] colums = {"Student.FName AS Name" ,"Student.LName", "Student.Major", "Student.Stu_ID"};
+        String[] colums = {"Student.FName" ,"Student.LName", "Student.Major", "Student.Phone_Number", "Communicates_Using.SM_Acc"};
         String test = "Hello!";
         Cursor c = db.query("Student " +  getResources().getString(R.string.lame_o_join),colums,null, null, null, null, null);
         c.moveToFirst();
@@ -74,13 +74,57 @@ public class MainActivity extends AppCompatActivity {
 
     public String createWhere()
     {
-        String ColCondition = "";
-        String MajCondition = "";
-        String CourCondition = "";
-        String GrouCondition = "";
-        String ZIPCondition = "";
+        String ColCondition = null;
+        String MajCondition = null;
+        String CourCondition = null;
+        String GrouCondition = null;
+        String ZIPCondition = null;
+        String whereQuery = null;
 
-        String whereQuery = "";
+        if(ColSpinner.getSelectedItem().equals("ANY"))
+        {
+            // nuffin
+        }
+        else
+        {
+            whereQuery += "";
+        }
+        if(MajorSpinner.getSelectedItem().equals("ALL"))
+        {
+            // nuffin
+        }
+        else
+        {
+            whereQuery += "";
+        }
+
+        if(CourseSpinner.getSelectedItem().equals("ANY"))
+        {
+            // nuffin
+        }
+        else
+        {
+            whereQuery += "";
+        }
+
+        if(GroupSpinner.getSelectedItem().equals("ANY") || GroupSpinner.getSelectedItem().equals("NONE"))
+        {
+            // nuffin
+        }
+        else
+        {
+            whereQuery += "";
+        }
+        if(ZIPSpinner.getSelectedItem().equals("ANY"))
+        {
+            // nuffin
+        }
+        else
+        {
+             whereQuery += "";
+        }
+
+
 
         return whereQuery;
     }

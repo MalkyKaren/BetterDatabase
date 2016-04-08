@@ -14,11 +14,11 @@ import static android.provider.Settings.Global.getString;
  */
 public class CoffeeDBHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "CoffeeBreakUpdateAndroid.db";
 
-    CoffeeDBHelper cDBHelper = new CoffeeDBHelper(MyApp.getContext());
-    SQLiteDatabase db = cDBHelper.getReadableDatabase();
+
+
 
     public CoffeeDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -68,7 +68,6 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                     "  C_Loc VARCHAR(40)  ,\n" +
                     "  C_ID INT  ,\n" +
                     "  Stu_ID VARCHAR(40)  ,\n" +
-                    "  PRIMARY KEY (C_ID),\n" +
                     "  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)\n" +
                     ");\n" ,
 
@@ -130,7 +129,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
 
                     "CREATE TABLE Address\n" +
                     "(\n" +
-                    "  Street VARCHAR(40)  ,\n" +
+                    "  Address VARCHAR(40)  ,\n" +
                     "  City VARCHAR(40)  ,\n" +
                     "  State VARCHAR(40)  ,\n" +
                     "  ZIP INT  ,\n" +
@@ -146,7 +145,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                     "  Name VARCHAR(40)  ,\n" +
                     "  Purpose VARCHAR(40)  ,\n" +
                     "  Stu_ID VARCHAR(40)  ,\n" +
-                    "  PRIMARY KEY (G_ID),\n" +
+                   // "  PRIMARY KEY (G_ID),\n" +
                     "  FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)\n" +
                     ");\n",
 
@@ -156,7 +155,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                     "  College_ID INT  ,\n" +
                     "  Col_Name VARCHAR(40)  ,\n" +
                     "  C_ID INT  ,\n" +
-                    "  PRIMARY KEY (College_ID),\n" +
+                  //  "  PRIMARY KEY (College_ID),\n" +
                     "  FOREIGN KEY (C_ID) REFERENCES Courses(C_ID)\n" +
                     ");\n"};
 
@@ -228,7 +227,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                 "VALUES ('PHOT231', 'Photography 101', 'ENGLE707', 'M00697586');\n",
 
                 "INSERT INTO College (College_ID, Col_Name, C_ID)\n" +
-                "VALUES (('1120', 'Massachusetts College of Art and Design', 'PHOT231');\n",
+                "VALUES ('1120', 'Massachusetts College of Art and Design', 'PHOT231');\n",
 
                 "INSERT INTO Stu_Courses (Stu_ID, C_ID)\n" +
                 "VALUES ('M00697586', 'PHOT231');\n",
@@ -243,7 +242,8 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                 "VALUES ('NULL', 'Photography', 0, 'M00697586');\n",
 
                 "INSERT INTO Communicates_Using (SM_Acc, Stu_ID)\n" +
-                "VALUES ('facebook.com/im.cool.foreal55, 'M00697586');\n",
+                "VALUES ('facebook.com/im.cool.foreal55', 'M00697586');\n",
+
 
 
                 "INSERT INTO Student (Stu_ID, Major, Minor, FName, LName, Phone_Number)\n" +
@@ -573,6 +573,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
         for (String aAdd_student_data : add_student_data) {
             db.execSQL(aAdd_student_data);
         }
+
 
     }
     @Override

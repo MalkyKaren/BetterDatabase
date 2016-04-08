@@ -4,6 +4,7 @@ import android.database.*;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,6 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonQuery;
     private EditText editText;
     private ListView listView;
+    private EditText textEdit;
+
+
+
 
 
     /**
@@ -52,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         CourseSpinner = (Spinner)findViewById( R.id.CourseSpinner );
         GroupSpinner = (Spinner)findViewById( R.id.GroupSpinner );
         ZIPSpinner = (Spinner)findViewById( R.id.ZIPSpinner );
-        listView = (ListView)findViewById( R.id.listView );
+        ListView = (ListView)findViewById(R.id.listView);
+       // editText = (EditText)findViewById(R.id.editText);
 
     }
 
@@ -62,19 +69,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         String[] colums = {"Student.FName" ,"Student.LName", "Student.Major", "Student.Phone_Number", "Communicates_Using.SM_Acc"};
-        String test = "Hello!";
-        Cursor c = db.query("Student " +  getResources().getString(R.string.lame_o_join),colums,null, null, null, null, null);
 
-       /* c.moveToFirst();
+        Cursor c = db.query(true, "Student " +  getResources().getString(R.string.lame_o_join),colums,null,null,null,null,null,null);
+        ArrayList<String> results = null;
+        String result = "";
+        if(c.moveToFirst())
+        {
+            do{
+                results.add(c.getString(0) + " " + c.getString(1) + "\n" + c.getString(2)+ "\n" + c.getString(3)+ "\n" + c.getString(4) + "\n \n");
+            }while (c.moveToNext());
 
-        c.moveToNext();
-        test += c.getColumnName(1)+ ": \n" +c.getString(1) + "\n" + c.getString(2) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
+        }
 
-       // editText.setText(test); */
-        listView.setAdapter();
-
+       // editText.setText(result);
+        ArrayAdapter<String> arrayAdapter =
+                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, results);
+        listView.setAdapter((arrayAdapter));
         c.close();
    }
+
 
     public String createWhere()
     {

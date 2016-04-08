@@ -31,7 +31,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner1"
+            android:id="@+id/ColSpinner"
             android:spinnerMode="dropdown"
             android:entries="@array/Col_o_f" />
 
@@ -45,7 +45,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner2"
+            android:id="@+id/MajorSpinner"
             android:spinnerMode="dropdown"
             android:entries="@array/Major" />
 
@@ -59,7 +59,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner4"
+            android:id="@+id/CourseSpinner"
             android:spinnerMode="dropdown"
             android:entries="@array/Course" />
 
@@ -73,7 +73,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner5"
+            android:id="@+id/GroupSpinner"
             android:spinnerMode="dropdown"
             android:entries="@array/Group" />
 
@@ -87,7 +87,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner6"
+            android:id="@+id/ZIPSpinner"
             android:spinnerMode="dropdown"
             android:entries="@array/ZIP" />
 

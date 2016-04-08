@@ -2,7 +2,7 @@
     <string name="app_name">COFFee</string>
 
     <string-array name="Col_o_f">
-        <item>ALL</item>
+        <item>ANY</item>
         <item>Wentworth</item>
         <item>Simmons</item>
         <item>MassART</item>
@@ -24,6 +24,7 @@
     </string-array>
 
     <string-array name="Minor">
+        <item>ANY</item>
         <item>NONE</item>
         <item>Basket Weaving</item>
         <item>Business</item>

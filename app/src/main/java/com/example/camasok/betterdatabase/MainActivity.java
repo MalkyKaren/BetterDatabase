@@ -28,20 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    private Spinner spinner1;
-    private Spinner spinner2;
-    private Spinner spinner3;
-    private Spinner spinner4;
-    private Spinner spinner5;
-    private Spinner spinner6;
-
+    private Spinner ColSpinner;
+    private Spinner MajorSpinner;
+    private Spinner CourseSpinner;
+    private Spinner GroupSpinner;
+    private Spinner ZIPSpinner;
     private Button buttonQuery;
-
     private EditText editText;
-
-
 
 
     /**
@@ -51,15 +44,14 @@ public class MainActivity extends AppCompatActivity {
      * (http://www.buzzingandroid.com/tools/android-layout-finder)
      */
     private void findViews() {
-        spinner1 = (Spinner)findViewById( R.id.spinner1 );
-        spinner2 = (Spinner)findViewById( R.id.spinner2 );
-        spinner4 = (Spinner)findViewById( R.id.spinner4 );
-        spinner5 = (Spinner)findViewById( R.id.spinner5 );
-        spinner6 = (Spinner)findViewById( R.id.spinner6 );
+        ColSpinner = (Spinner)findViewById( R.id.ColSpinner );
+        MajorSpinner = (Spinner)findViewById( R.id.MajorSpinner );
+        CourseSpinner = (Spinner)findViewById( R.id.CourseSpinner );
+        GroupSpinner = (Spinner)findViewById( R.id.GroupSpinner );
+        ZIPSpinner = (Spinner)findViewById( R.id.ZIPSpinner );
         editText = (EditText)findViewById( R.id.editText );
         buttonQuery = (Button)findViewById( R.id.buttonQuery );
         editText.setText("Hello");
-
     }
 
     public void query(View view)  {
@@ -69,19 +61,27 @@ public class MainActivity extends AppCompatActivity {
 
         String[] colums = {"Student.FName AS Name" ,"Student.LName", "Student.Major", "Student.Stu_ID"};
         String test = "Hello!";
-        Cursor c = db.query("Student " +  getResources().getString(R.string.lame_o_join) ,colums,null, null, null, null, null);
+        Cursor c = db.query("Student " +  getResources().getString(R.string.lame_o_join),colums,null, null, null, null, null);
         c.moveToFirst();
 
         c.moveToNext();
         test += c.getColumnName(1)+ ": \n" +c.getString(1) + "\n" + c.getString(2) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
 
-
-
-
-
         editText.setText(test);
-
-
+        c.close();
    }
+
+    public String createWhere()
+    {
+        String ColCondition = "";
+        String MajCondition = "";
+        String CourCondition = "";
+        String GrouCondition = "";
+        String ZIPCondition = "";
+
+        String whereQuery = "";
+
+        return whereQuery;
+    }
 
 }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.database.sqlite.*;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner ZIPSpinner;
     private Button buttonQuery;
     private EditText editText;
+    private ListView listView;
 
 
     /**
@@ -49,9 +51,8 @@ public class MainActivity extends AppCompatActivity {
         CourseSpinner = (Spinner)findViewById( R.id.CourseSpinner );
         GroupSpinner = (Spinner)findViewById( R.id.GroupSpinner );
         ZIPSpinner = (Spinner)findViewById( R.id.ZIPSpinner );
-        //editText = (EditText)findViewById( R.id.editText );
-        // buttonQuery = (Button)findViewById( R.id.buttonQuery );
-        //editText.setText("Hello");
+        listView = (ListView)findViewById( R.id.listView );
+
     }
 
     public void query(View view)  {

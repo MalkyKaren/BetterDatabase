@@ -1,6 +1,7 @@
 package com.example.camasok.betterdatabase;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -16,15 +17,18 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "CoffeeBreakUpdateAndroid.db";
 
+    CoffeeDBHelper cDBHelper = new CoffeeDBHelper(MyApp.getContext());
+    SQLiteDatabase db = cDBHelper.getReadableDatabase();
+
     public CoffeeDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        CoffeeDBHelper cDBHelper = new CoffeeDBHelper(MyApp.getContext());
-        // SQLiteDatabase db = cDBHelper.getReadableDatabase();
+
         String[] create_student_table;
             create_student_table = new String[]{"CREATE TABLE Student\n" +
                     "(\n" +

@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.database.sqlite.*;
+import android.widget.SimpleCursorAdapter;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -63,12 +64,15 @@ public class MainActivity extends AppCompatActivity {
         String[] colums = {"Student.FName" ,"Student.LName", "Student.Major", "Student.Phone_Number", "Communicates_Using.SM_Acc"};
         String test = "Hello!";
         Cursor c = db.query("Student " +  getResources().getString(R.string.lame_o_join),colums,null, null, null, null, null);
-        c.moveToFirst();
+
+       /* c.moveToFirst();
 
         c.moveToNext();
         test += c.getColumnName(1)+ ": \n" +c.getString(1) + "\n" + c.getString(2) + "\n \n" + c.getString(2) + "\n" + c.getString(3) + "\n"+ test + "\n";
 
-       // editText.setText(test);
+       // editText.setText(test); */
+        listView.setAdapter();
+
         c.close();
    }
 

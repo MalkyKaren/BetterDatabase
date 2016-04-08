@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         CourseSpinner = (Spinner)findViewById( R.id.CourseSpinner );
         GroupSpinner = (Spinner)findViewById( R.id.GroupSpinner );
         ZIPSpinner = (Spinner)findViewById( R.id.ZIPSpinner );
-        ListView = (ListView)findViewById(R.id.listView);
+        listView = (ListView)findViewById(R.id.listView);
        // editText = (EditText)findViewById(R.id.editText);
 
     }
@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
         String[] colums = {"Student.FName" ,"Student.LName", "Student.Major", "Student.Phone_Number", "Communicates_Using.SM_Acc"};
 
         Cursor c = db.query(true, "Student " +  getResources().getString(R.string.lame_o_join),colums,null,null,null,null,null,null);
-        ArrayList<String> results = null;
+        ArrayList<String> results = new ArrayList<String>();
         String result = "";
         if(c.moveToFirst())
         {
             do{
-                results.add(c.getString(0) + " " + c.getString(1) + "\n" + c.getString(2)+ "\n" + c.getString(3)+ "\n" + c.getString(4) + "\n \n");
+                results.add(c.getString(0) + " " + c.getString(1) + "\n" + c.getString(2)+ "\n" + c.getString(3)+ "\n" + c.getString(4));
             }while (c.moveToNext());
 
         }

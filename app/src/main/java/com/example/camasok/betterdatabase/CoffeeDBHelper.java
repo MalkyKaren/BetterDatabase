@@ -1,5 +1,6 @@
 package com.example.camasok.betterdatabase;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,16 +18,15 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "CoffeeBreakUpdateAndroid.db";
 
-
-
-
     public CoffeeDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
 
 
         String[] create_student_table;
@@ -158,10 +158,6 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                   //  "  PRIMARY KEY (College_ID),\n" +
                     "  FOREIGN KEY (C_ID) REFERENCES Courses(C_ID)\n" +
                     ");\n"};
-
-        for (String aCreate_student_table : create_student_table) {
-            db.execSQL(aCreate_student_table);
-        }
 
 
         String[] add_student_data;
@@ -371,6 +367,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                 "INSERT INTO Communicates_Using (SM_Acc, Stu_ID)\n" +
                 "VALUES ('facebook.com/OwThePain', 'W00487256');\n",
 
+
                 "INSERT INTO Student (Stu_ID, Major, Minor, FName, LName, Phone_Number)\n" +
                 "VALUES ('W00858672', 'Computer Science', 'Computer Engineering', 'John', 'Doe', '7776269678');\n",
 
@@ -449,6 +446,7 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
 
                 "INSERT INTO Communicates_Using (SM_Acc, Stu_ID)\n" +
                 "VALUES ('facebook.com/my.project.is.bad', 'W00767535');\n",
+
 
                 "INSERT INTO Student (Stu_ID, Major, Minor, FName, LName, Phone_Number)\n" +
                 "VALUES ('W00798247', 'Architecture', NULL, 'Merluzzon', 'Nick', '5658897823');\n",
@@ -567,11 +565,18 @@ public class CoffeeDBHelper extends SQLiteOpenHelper {
                 "VALUES ('ROPM112', 'Biology', 0, 'S00192837');\n",
 
                 "INSERT INTO Communicates_Using (SM_Acc, Stu_ID)\n" +
-                "VALUES ('facebook.com/chemperson', 'S00192837');\n"};
+                "VALUES ('facebook.com/chemperson', 'S00192837');\n",
+
+        };
 
 
-        for (String aAdd_student_data : add_student_data) {
+        for (String aAdd_student_data : add_student_data)
+        {
             db.execSQL(aAdd_student_data);
+        }
+
+        for (String aCreate_student_table : create_student_table) {
+            db.execSQL(aCreate_student_table);
         }
 
 

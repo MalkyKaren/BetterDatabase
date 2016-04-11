@@ -1,13 +1,18 @@
 package com.example.camasok.betterdatabase;
 
+import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.database.*;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.SimpleCursorAdapter;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,10 +30,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        /*
+        ProgressDialog dialog=new ProgressDialog(this);
+        dialog.setMessage("Please wait... \n Creating and populating Database...");
+        dialog.setCancelable(false);
+        dialog.setInverseBackgroundForced(false);
+        dialog.show();
+        dialog.hide(); */
 
         setContentView(R.layout.activity_main);
         findViews();
+
+
 
     }
 
@@ -37,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
     private Spinner CourseSpinner;
     private Spinner GroupSpinner;
     private Spinner ZIPSpinner;
-    private Button buttonQuery;
-    private EditText editText;
     private ListView listView;
-    private EditText textEdit;
+    private RelativeLayout relativeLayout;
+
+    String whereQuery = "";
 
 
 
@@ -59,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         GroupSpinner = (Spinner)findViewById( R.id.GroupSpinner );
         ZIPSpinner = (Spinner)findViewById( R.id.ZIPSpinner );
         listView = (ListView)findViewById(R.id.listView);
+        relativeLayout = (RelativeLayout)findViewById(R.id.relativeLayout);
        // editText = (EditText)findViewById(R.id.editText);
 
     }
@@ -69,23 +85,27 @@ public class MainActivity extends AppCompatActivity {
 
 
         String[] colums = {"Student.FName" ,"Student.LName", "Student.Major", "Student.Phone_Number", "Communicates_Using.SM_Acc"};
-
-        Cursor c = db.query(true, "Student " +  getResources().getString(R.string.lame_o_join),colums,null,null,null,null,null,null);
+        createWhere();
+        Cursor c = db.query(true, "Student " +  getResources().getString(R.string.lame_o_join),colums,whereQuery,null,null,null,null,null);
         ArrayList<String> results = new ArrayList<String>();
-        String result = "";
+
         if(c.moveToFirst())
         {
             do{
-                results.add(c.getString(0) + " " + c.getString(1) + "\n" + c.getString(2)+ "\n" + c.getString(3)+ "\n" + c.getString(4));
+                results.add("Name: " + c.getString(0) + " " + c.getString(1) + "\nMajor: " + c.getString(2)+ "\nPhone #: " + c.getString(3)+ "\nSocial Media: " + c.getString(4));
             }while (c.moveToNext());
 
         }
 
-       // editText.setText(result);
+
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, results);
         listView.setAdapter((arrayAdapter));
         c.close();
+        Snackbar snackbar = Snackbar
+                .make(relativeLayout, "Search returned <" + results.size() + "> Student(s).", Snackbar.LENGTH_LONG);
+        db.close();
+        snackbar.show();
    }
 
 
@@ -96,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
         String CourCondition = null;
         String GrouCondition = null;
         String ZIPCondition = null;
-        String whereQuery = null;
+
+        whereQuery = "";
 
         if(ColSpinner.getSelectedItem().equals("ANY"))
         {
@@ -104,7 +125,11 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            whereQuery += "";
+            if(whereQuery.equals(""))
+            {
+                whereQuery += "College.Col_Name LIKE '%" + ColSpinner.getSelectedItem().toString() + "%' ";
+            }
+
         }
         if(MajorSpinner.getSelectedItem().equals("ALL"))
         {
@@ -112,7 +137,14 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            whereQuery += "";
+            if(whereQuery.equals(""))
+            {
+                whereQuery += "Student.Major LIKE '%" + MajorSpinner.getSelectedItem().toString() + "%' ";
+            }
+            else
+            {
+                whereQuery += "AND Student.Major LIKE '%" + MajorSpinner.getSelectedItem().toString() + "%' ";
+            }
         }
 
         if(CourseSpinner.getSelectedItem().equals("ANY"))
@@ -121,7 +153,14 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            whereQuery += "";
+            if(whereQuery.equals(""))
+            {
+                whereQuery += "Courses.C_Name LIKE '%" + CourseSpinner.getSelectedItem().toString() + "%'";
+            }
+            else
+            {
+                whereQuery += "AND Courses.C_Name LIKE '%" + CourseSpinner.getSelectedItem().toString() + "%'";
+            }
         }
 
         if(GroupSpinner.getSelectedItem().equals("ANY") || GroupSpinner.getSelectedItem().equals("NONE"))
@@ -130,7 +169,14 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            whereQuery += "";
+            if(whereQuery.equals(""))
+            {
+                whereQuery += "Groups.Name LIKE '%" + GroupSpinner.getSelectedItem().toString() + "%'";
+            }
+            else
+            {
+                whereQuery += "AND Groups.Name LIKE '%" + GroupSpinner.getSelectedItem().toString() + "%'";
+            }
         }
         if(ZIPSpinner.getSelectedItem().equals("ANY"))
         {
@@ -138,10 +184,15 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-             whereQuery += "";
+            if(whereQuery.equals(""))
+            {
+                whereQuery += "Address.ZIP LIKE '%" + ZIPSpinner.getSelectedItem().toString() + "%'";
+            }
+            else
+            {
+                whereQuery += "AND Address.ZIP LIKE '%" + ZIPSpinner.getSelectedItem().toString() + "%'";
+            }
         }
-
-
 
         return whereQuery;
     }

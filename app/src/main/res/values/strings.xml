@@ -5,7 +5,7 @@
         <item>ANY</item>
         <item>Wentworth</item>
         <item>Simmons</item>
-        <item>MassART</item>
+        <item>Massachusetts College of Art</item>
     </string-array>
 
     <string-array name="Major">
@@ -32,14 +32,6 @@
         <item>Computer Engineering</item>
     </string-array>
 
-    <string-array name="ExtraQueries">
-        <item>NONE</item>
-        <item>Query 1</item>
-        <item>Query 2</item>
-        <item>Query 3</item>
-        <item>Query 4</item>
-        <item>Query 5</item>
-    </string-array>
 
     <string-array name="Group">
         <item>NONE</item>
@@ -55,11 +47,18 @@
 
     <string-array name="Course">
         <item>ANY</item>
-        <item>Item 1</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
-        <item>Item 4</item>
-        <item>Item 5</item>
+        <item>Advanced Basket Weaving</item>
+        <item>Algorithms</item>
+        <item>America Post-9/11</item>
+        <item>Artificial Intelligence</item>
+        <item>Circuit Theory</item>
+        <item>College Math</item>
+        <item>Discrete Math</item>
+        <item>Intro to Architecture</item>
+        <item>Intro to Chemistry</item>
+        <item>Intro to Civil Engineering</item>
+        <item>Music Theory</item>
+        <item>Photography 101</item>
     </string-array>
 
     <string-array name="ZIP">
@@ -88,6 +87,7 @@
         INNER JOIN Stu_Courses ON Stu_Courses.Stu_ID= Student.Stu_ID
         INNER JOIN Transportation ON Transportation.Stu_ID= Student.Stu_ID
         INNER JOIN Transportation_Preference  ON Transportation_Preference.Stu_ID= Student.Stu_ID</string>
+
     <string name="query_select">Query Select \n Select Any Field From Dropdown \n Press Donut To Search!</string>
 
 

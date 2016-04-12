@@ -115,7 +115,7 @@
             android:id="@+id/ZIPSpinner"
             android:spinnerMode="dropdown"
             android:entries="@array/ZIP" />
-        <SCr
+
 
         
 
